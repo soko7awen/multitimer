@@ -1,0 +1,19 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Run compile-sass on startup",
+        "type": "shell",
+        "command": "npm run compile-sass",
+        "windows": {
+          "command": "npm run compile-sass"
+        },
+        "presentation": {
+          "reveal": "always",
+          "panel": "new"
+        },
+        "runOptions": { "runOn": "folderOpen" }
+      }
+    ]
+  }
+  
