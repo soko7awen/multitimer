@@ -7,7 +7,17 @@
 			"group": "build",
 			"problemMatcher": [],
 			"label": "npm: compile-sass",
-			"detail": "sass scss/styles.scss css/styles.css -w",
+			"detail": "sass scss/styles.scss css/styles.css -w"
+		},
+		{
+			"type": "typescript",
+			"tsconfig": "tsconfig.json",
+			"option": "watch",
+			"problemMatcher": [
+				"$tsc-watch"
+			],
+			"group": "build",
+			"label": "tsc: watch - tsconfig.json",
 			"runOptions": { "runOn": "folderOpen" }
 		}
 	]

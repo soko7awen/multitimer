@@ -4,43 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preload" as="font" href="../fonts/Roboto-Medium.woff2" type="font/woff2" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+    <link rel="stylesheet" href="/dist/css/styles.css">
     <title>MultiTimer</title>
 </head>
 <body>
     <div class="topMenu"></div>
     <div class="rectSpot">
         <div class="timerContainer">
-            <button class="buttonDrag">↕</button>
-            <input type="checkbox" class="buttonCheck timerButtons">
+            <button class="buttonDrag">
+                <svg width="10" height="30" xmlns="http://www.w3.org/2000/svg"><path d="M6 6h4L5 0 0 6h4v18H0l5 6 5-6H6Z"/></svg>
+            </button>
+            <label class="buttonCheckContainer">
+                <input type="checkbox" class="buttonCheck">
+                <span class="checkmark"></span>
+            </label>
             <div class="timerText" id="timerText">0:00:00</div>
             <button onclick="playPauseTimer()" class="buttonPlayPause timerButtons" id="buttonPlayPause">▶</button>
-            <button class="buttonAddAmount timerButtons" >+30 sec</button>
-            <button class="buttonAddAmount timerButtons" >1</button>
-            <button class="buttonAddAmount timerButtons" >3</button>
-            <button class="buttonAddAmount timerButtons" >5</button>
-            <button class="buttonAddAmount timerButtons" >10</button>
-            <button class="buttonAddAmount timerButtons" >15</button>
-            <button class="buttonAddAmount timerButtons" >45</button>
-            <button class="buttonAddAmount timerButtons" >1</button>
-            <button class="buttonTrash timerButtons" >
-                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                viewBox="0 0 307.252 307.252" style="enable-background:new 0 0 307.252 307.252;" xml:space="preserve">
-           <path id="XMLID_564_" d="M184.581,230.833l9.521-100.238c0.575-6.048,5.931-10.48,11.991-9.911
-               c6.048,0.575,10.485,5.943,9.911,11.991l-9.521,100.238c-0.541,5.694-5.332,9.961-10.938,9.961c-0.348,0-0.699-0.017-1.053-0.05
-               C188.444,242.249,184.007,236.881,184.581,230.833z M45.306,37.023h216.644c6.075,0,11-4.925,11-11s-4.925-11-11-11h-61.998
-               c0.49-1.246,0.759-2.604,0.759-4.023c0-6.075-4.925-11-11-11h-72.165c-6.075,0-11,4.925-11,11c0,1.42,0.269,2.777,0.759,4.023
-               H45.306c-6.075,0-11,4.925-11,11S39.23,37.023,45.306,37.023z M153.624,260.644c6.075,0,11-4.925,11-11V113.864
-               c0-6.075-4.925-11-11-11s-11,4.925-11,11v135.779C142.624,255.719,147.549,260.644,153.624,260.644z M273.279,68.477l-25.58,228.996
-               c-0.622,5.568-5.329,9.779-10.932,9.779H70.484c-5.603,0-10.31-4.211-10.932-9.779L33.973,68.477
-               c-0.348-3.11,0.646-6.222,2.733-8.555c2.086-2.333,5.068-3.666,8.198-3.666h217.443c3.13,0,6.112,1.333,8.198,3.666
-               C272.633,62.255,273.627,65.366,273.279,68.477z M250.051,78.256H57.201l23.123,206.996h146.604L250.051,78.256z M100.772,232.913
-               c0.54,5.694,5.33,9.961,10.938,9.961c0.348,0,0.699-0.017,1.053-0.05c6.048-0.575,10.485-5.943,9.911-11.991l-9.52-100.238
-               c-0.575-6.048-5.938-10.484-11.991-9.911c-6.048,0.575-10.485,5.943-9.911,11.991L100.772,232.913z"/>
-            </svg>
-        </button>
-
+            <button onclick="addAmountTimer(30)" class="buttonAddAmount timerButtons" >+30 sec</button>
+            <button onclick="addAmountTimer(60)" class="buttonAddAmount timerButtons" >+1 min</button>
+            <button onclick="addAmountTimer(180)" class="buttonAddAmount timerButtons" >+3 min</button>
+            <button onclick="addAmountTimer(300)" class="buttonAddAmount timerButtons" >+5 min</button>
+            <button onclick="addAmountTimer(600)" class="buttonAddAmount timerButtons" >+10 min</button>
+            <button onclick="addAmountTimer(900)" class="buttonAddAmount timerButtons" >+15 min</button>
+            <button onclick="addAmountTimer(2700)" class="buttonAddAmount timerButtons" >+45 min</button>
+            <button onclick="addAmountTimer(3600)" class="buttonAddAmount timerButtons" >+1 hr</button>
+            <button onclick="addAmountTimer(30)" class="buttonTrash timerButtons">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 307.252 307.252" style="enable-background:new 0 0 307.252 307.252" xml:space="preserve"><path d="m184.581 230.833 9.521-100.238c.575-6.048 5.931-10.48 11.991-9.911 6.048.575 10.485 5.943 9.911 11.991l-9.521 100.238c-.541 5.694-5.332 9.961-10.938 9.961-.348 0-.699-.017-1.053-.05-6.048-.575-10.485-5.943-9.911-11.991zM45.306 37.023H261.95c6.075 0 11-4.925 11-11s-4.925-11-11-11h-61.998c.49-1.246.759-2.604.759-4.023 0-6.075-4.925-11-11-11h-72.165c-6.075 0-11 4.925-11 11 0 1.42.269 2.777.759 4.023H45.306c-6.075 0-11 4.925-11 11s4.924 11 11 11zm108.318 223.621c6.075 0 11-4.925 11-11v-135.78c0-6.075-4.925-11-11-11s-11 4.925-11 11v135.779c0 6.076 4.925 11.001 11 11.001zM273.279 68.477l-25.58 228.996a11 11 0 0 1-10.932 9.779H70.484a11 11 0 0 1-10.932-9.779L33.973 68.477a10.998 10.998 0 0 1 10.931-12.221h217.443a10.997 10.997 0 0 1 10.932 12.221zm-23.228 9.779H57.201l23.123 206.996h146.604l23.123-206.996zM100.772 232.913c.54 5.694 5.33 9.961 10.938 9.961.348 0 .699-.017 1.053-.05 6.048-.575 10.485-5.943 9.911-11.991l-9.52-100.238c-.575-6.048-5.938-10.484-11.991-9.911-6.048.575-10.485 5.943-9.911 11.991l9.52 100.238z"/></svg>
+            </button>
+        </input>
         </div>
     </div>
     <div class="rectSpot"></div>
@@ -49,6 +41,6 @@
     <div class="rectSpot"></div>
     <div class="rectSpot"></div>
     <div class="rectSpot"></div>
-    <script src="scripts/timer.js"></script>
+    <script src="dist/js/timer.js"></script>
 </body>
 </html>
